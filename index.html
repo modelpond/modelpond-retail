@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Model Pond is an EU-hosted large language model gateway with unified billing and search tools." />
+    <title>Model Pond: EU LLM Gateway</title>
+    <link rel="icon" href="/static/favicon.ico" />
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    
+
+
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell nav-wrap">
+        <a class="brand" href="/" aria-label="Model Pond home">
+          <img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109">
+          <span>Model Pond</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="/instruct/" >Instruct</a>
+          <a href="/gateway/" >Gateway</a>
+          <a href="/code/" >Code</a>
+          <a href="/batch/" >Batch</a>
+          <a href="/catalogue/" >Catalogue</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button button-small" href="https://app.modelpond.eu/">Sign In <span aria-hidden="true">↗</span></a>
+          <details class="mobile-nav">
+            <summary class="menu-toggle">
+              <span class="sr-only">Toggle menu</span>
+              <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+            </summary>
+            <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+              <a href="/instruct/" >Instruct</a>
+              <a href="/gateway/" >Gateway</a>
+              <a href="/code/" >Code</a>
+              <a href="/batch/" >Batch</a>
+              <a href="/catalogue/" >Catalogue</a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="">
+      
+<section class="hero section-dark">
+        <picture class="hero-art">
+          <source srcset="/static/splash.webp" type="image/webp" />
+          <img src="/static/splash.png" width="1000" height="563" alt="" />
+        </picture>
+        <div class="shell hero-single">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR GATEWAY TO PRIVATE AI
+          <h1>Don&rsquo;t be misled</h1>
+          <p class="hero-lede">Capable AI doesn't mean divulging secrets to companies who train on them.
+          <div class="hero-actions">
+            <a class="button" href="https://app.modelpond.eu/">Get started <span aria-hidden="true">↗</span></a>
+            <a class="arrow-link light" href="#privacy">How privacy works <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-facts" aria-label="Key facts">
+            <span>European gateway, service providers, infrastructure and models</span>
+            <span>Always private</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="standard" class="section section-light">
+        <div class="shell prose-centred">
+          <div class="prose">
+            <p>Commodity AI is nowadays just as good as the frontier from US
+            providers. We provide state of the art models operating within a
+            robust privacy framework you can trust with your most sensitive
+            information.
+            <div class="vendor-marks">
+              
+              
+              <img src="/static/catalog/models/qwen.svg" alt="Alibaba" title="Alibaba">
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <img src="/static/catalog/models/deepseek.svg" alt="DeepSeek" title="DeepSeek">
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <img src="/static/catalog/models/mistral.svg" alt="Mistral" title="Mistral">
+              
+              
+              
+              <img src="/static/catalog/models/kimi.svg" alt="Moonshot AI" title="Moonshot AI">
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <img src="/static/catalog/models/zai.svg" alt="Z AI" title="Z AI">
+              
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-paper use-section" aria-label="Use cases">
+        <div class="shell use-grid">
+          <article class="use-item">
+            <h3>Instruct</h3>
+            <p>Instruct lets you work with AI while retaining privacy. Conversation history is encrypted at rest and totally inaccessible to us.
+            <p><a class="arrow-link use-link" href="/instruct/">Learn more about Instruct</a>
+          </article>
+          <article class="use-item">
+            <h3>Gateway</h3>
+            <p>We offer a routing fabric for text, image and audio API requests to privacy-preserving providers that logs and retains nothing.
+            <p><a class="arrow-link use-link" href="/gateway/">Learn more about the gateway</a>
+          </article>
+          <article class="use-item">
+            <h3>Code</h3>
+            <p>We provide a supported version of Codex preconfigured for our models and with telemetry disabled.
+            <p><a class="arrow-link use-link" href="/code/">Learn more about code</a>
+          </article>
+          <article class="use-item">
+            <h3>Batch</h3>
+            <p>Upload bulk data, including audio, to query or transform using AI at reduced rates.
+            <p><a class="arrow-link use-link" href="/batch/">Learn more about batch processing</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="privacy" class="section section-blue">
+        <div class="shell prose-grid">
+          <div>
+            <h2>We don't retain your data, or work with companies who do</h2>
+          </div>
+          <div class="prose">
+            <p>Our code is open source and cryptographically attested, so you can verify exactly how your data is handled. We don't track user and billing accounts, and only keep statistics to calculate usage.
+            <p>No guesswork is involved in sending data to us. Our providers are European owned, host their infrastructure in Europe, and implement GDPR <nobr>Article 5(1)</nobr> requirements for data minimisation and confidentiality.
+            <p><a class="arrow-link models-link" href="/privacy/">Learn more about our approach to privacy</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section section-light">
+        <div class="shell prose-grid">
+          <div>
+            <h2>One bill<br />2.5% markup</h2>
+          </div>
+          <div class="prose">
+            <p>Model Pond adds a small fixed 2.5% markup to the pricing of underlying providers.
+            <div class="price-plain">
+              <div class="pp-head"><span>Gateway</span><span>ZDR</span><span>Markup</span></div>
+              <div class="pp-us"><span>Model Pond</span><span class="pp-zdr pp-on">Required</span><strong>2.5%</strong></div>
+              <div><span>Typical gateway</span><span class="pp-zdr">Conditional</span><strong>10%</strong></div>
+            </div>
+            <p class="pp-note">On a conventional gateway, zero data retention is an opt-in filter rather than a default. It is enabled per model group, it drops endpoints once it is on, and providers whose policy cannot be verified are assumed to retain data.
+            <div class="model-table">
+              <div class="mt-head"><span>Model</span><span>In</span><span>Out</span><span>In €</span><span>Out €</span></div>
+              
+              <a class="mt-row" href="&#x2f;catalogue&#x2f;models&#x2f;deepseek-v4.1-flash&#x2f;">
+                <span class="mt-name">DeepSeek V4.1 Flash</span>
+                <span class="mt-mod">
+                  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-mod">
+                  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-in"><strong>€0.44 - €0.60</strong></span>
+                <span class="mt-stack"><strong>€1.31 - €1.80</strong></span>
+              </a>
+              
+              <a class="mt-row" href="&#x2f;catalogue&#x2f;models&#x2f;mistral-large-4&#x2f;">
+                <span class="mt-name">Mistral Large 4</span>
+                <span class="mt-mod">
+                  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-mod">
+                  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-in"><strong>€0.59</strong></span>
+                <span class="mt-stack"><strong>€1.82</strong></span>
+              </a>
+              
+              <a class="mt-row" href="&#x2f;catalogue&#x2f;models&#x2f;qwen3.8-27b&#x2f;">
+                <span class="mt-name">Qwen3.8 27B</span>
+                <span class="mt-mod">
+                  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-mod">
+                  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-in"><strong>€0.39 - €0.60</strong></span>
+                <span class="mt-stack"><strong>€0.65 - €3.30</strong></span>
+              </a>
+              
+              <a class="mt-row" href="&#x2f;catalogue&#x2f;models&#x2f;glm-5.3&#x2f;">
+                <span class="mt-name">GLM-5.3</span>
+                <span class="mt-mod">
+                  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-mod">
+                  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-in"><strong>€1.22</strong></span>
+                <span class="mt-stack"><strong>€3.84</strong></span>
+              </a>
+              
+              <a class="mt-row" href="&#x2f;catalogue&#x2f;models&#x2f;kimi-k3&#x2f;">
+                <span class="mt-name">Kimi K3</span>
+                <span class="mt-mod">
+                  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-mod">
+                  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                </span>
+                <span class="mt-in"><strong>€3.00</strong></span>
+                <span class="mt-stack"><strong>€15.00</strong></span>
+              </a>
+              
+            </div>
+            <p><a class="arrow-link models-link" href="/catalogue/">View the model catalogue</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta" class="section cta-section section-dark">
+        <div class="shell cta-inner">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> ACCESS THE GATEWAY
+          <h2>Get started now</h2>
+          <div class="cta-actions">
+            <a class="button" href="https://app.modelpond.eu/">Open Model Pond <span aria-hidden="true">↗</span></a>
+            <a class="arrow-link light" href="/privacy/">Read about privacy <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div class="footer-brand">
+          <a class="brand inverse" href="/"><img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109"><span>Model Pond</span></a>
+          <p>Unified gateway for private AI compute.
+        </div>
+        <div class="footer-links">
+          <div><p class="footer-label">Product</p><a href="/instruct/">Instruct</a><a href="/gateway/">Gateway</a><a href="/code/">Code</a><a href="/batch/">Batch</a><a href="/catalogue/">Catalogue</a></div>
+          <div><p class="footer-label">Policy</p><a href="/privacy/">Privacy</a><a href="/#pricing">Pricing</a><p class="footer-label later">Contact</p><a href="mailto:hello@modelpond.eu">hello@modelpond.eu</a></div>
+        </div>
+        <div class="footer-meta"><span>EU-hosted infrastructure</span><span class="footer-copy">© 2026 Model Pond</span></div>
+      </div>
+    </footer>
+  </body>
+</html>

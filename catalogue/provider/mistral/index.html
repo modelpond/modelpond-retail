@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="States that data sent through the API is not used for training, with a training opt-out that is a separate control from retention. Zero data retention is granted on request and reviewed case by case, and covers stateless calls such as chat, embeddings, OCR and speech, but not stateful products such as Batch and the Files API. Inference runs on GPU infrastructure Mistral manages, including third-party models such as GLM, and the EU endpoint pins processing to EU and EFTA data centres at a 10% upcharge." />
+    <title>Model Pond: Mistral</title>
+    <link rel="icon" href="/static/favicon.ico" />
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    
+<link rel="stylesheet" href="/static/catalog.css" />
+
+  </head>
+  <body>
+    <header class="site-header pinned">
+      <div class="shell nav-wrap">
+        <a class="brand" href="/" aria-label="Model Pond home">
+          <img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109">
+          <span>Model Pond</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="/instruct/" >Instruct</a>
+          <a href="/gateway/" >Gateway</a>
+          <a href="/code/" >Code</a>
+          <a href="/batch/" >Batch</a>
+          <a href="/catalogue/" aria-current="page">Catalogue</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button button-small" href="https://app.modelpond.eu/">Sign In <span aria-hidden="true">↗</span></a>
+          <details class="mobile-nav">
+            <summary class="menu-toggle">
+              <span class="sr-only">Toggle menu</span>
+              <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+            </summary>
+            <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+              <a href="/instruct/" >Instruct</a>
+              <a href="/gateway/" >Gateway</a>
+              <a href="/code/" >Code</a>
+              <a href="/batch/" >Batch</a>
+              <a href="/catalogue/" aria-current="page">Catalogue</a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="shell doc-main">
+      
+<section class="catalogue-entity">
+  <header class="entity-head">
+    
+    <a class="entity-logo" href="https://mistral.ai/" target="_blank" rel="noopener noreferrer">
+      <img src="&#x2f;static&#x2f;catalog&#x2f;providers&#x2f;mistral.svg" alt="" />
+    </a>
+    
+    <div class="entity-copy">
+      <p class="eyebrow dark">Provider</p>
+      <h1>Mistral</h1>
+      <p class="entity-facts">France · Text, Speech, Image, Embeddings, Moderation</p>
+      <p class="entity-blurb">States that data sent through the API is not used for training, with a training opt-out that is a separate control from retention. Zero data retention is granted on request and reviewed case by case, and covers stateless calls such as chat, embeddings, OCR and speech, but not stateful products such as Batch and the Files API. Inference runs on GPU infrastructure Mistral manages, including third-party models such as GLM, and the EU endpoint pins processing to EU and EFTA data centres at a 10% upcharge.</p>
+      <div class="prov-links">
+        
+        <a href="https://legal.mistral.ai/terms/data-processing-addendum">Data processing addendum</a>
+        
+        <a href="https://legal.mistral.ai/terms/privacy-policy">Privacy policy</a>
+        
+        <a href="https://docs.mistral.ai/inference/regional-inference">Regional inference</a>
+        
+        <a href="https://trust.mistral.ai/">Trust center</a>
+        
+        <a href="https://docs.mistral.ai/admin/monitor-comply/zero-data-retention">Zero data retention</a>
+        
+      </div>
+    </div>
+  </header>
+  
+<div class="catalog-controls">
+  <div class="catalog-nav" role="group" aria-label="Filter models by type">
+    
+    <a href="#cat-text" data-type-filter="text" aria-controls="cat-text" aria-pressed="false"><b>Text</b> 9</a>
+    
+    <a href="#cat-speech" data-type-filter="speech" aria-controls="cat-speech" aria-pressed="false"><b>Speech</b> 2</a>
+    
+    <a href="#cat-image" data-type-filter="image" aria-controls="cat-image" aria-pressed="false"><b>Image</b> 1</a>
+    
+    <a href="#cat-embeddings" data-type-filter="embeddings" aria-controls="cat-embeddings" aria-pressed="false"><b>Embeddings</b> 1</a>
+    
+    <a href="#cat-moderation" data-type-filter="moderation" aria-controls="cat-moderation" aria-pressed="false"><b>Moderation</b> 1</a>
+    
+  </div>
+  <form class="catalog-search" role="search">
+    <label>
+      <span class="sr-only">Filter models</span>
+      <input id="model-filter" type="search" placeholder="Filter models" autocomplete="off" spellcheck="false" />
+    </label>
+  </form>
+</div>
+
+<section class="cat-section" id="cat-text" data-model-type="text">
+  <div class="cat-head">
+    <h2>Text</h2>
+    <p>Language and vision-language generation.</p>
+  </div>
+  <div class="cat-list">
+    <div class="cat-row cat-cols">
+      <div></div><div></div>
+      <div class="prices"><span>In €</span><span>Out €</span></div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;ministral-3-3b&#x2f;">mistral&#x2f;fr&#x2f;ministral-3b-2512</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2025-12-02
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">image</span></span>
+  
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            0.09<span class="unit">/M</span>
+          </span>
+          <small>cached 0.009&#x2f;M</small>
+        </div>
+        <div>
+          <span>
+            0.09<span class="unit">/M</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;ministral-3-8b&#x2f;">mistral&#x2f;fr&#x2f;ministral-8b-2512</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2025-12-02
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">image</span></span>
+  
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            0.13<span class="unit">/M</span>
+          </span>
+          <small>cached 0.013&#x2f;M</small>
+        </div>
+        <div>
+          <span>
+            0.13<span class="unit">/M</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;ministral-3-14b&#x2f;">mistral&#x2f;fr&#x2f;ministral-14b-2512</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2025-12-02
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">image</span></span>
+  
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            0.17<span class="unit">/M</span>
+          </span>
+          <small>cached 0.017&#x2f;M</small>
+        </div>
+        <div>
+          <span>
+            0.17<span class="unit">/M</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;mistral-small-4&#x2f;">mistral&#x2f;fr&#x2f;mistral-small-2603</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2026-03-16
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">image</span></span>
+  
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            0.13<span class="unit">/M</span>
+          </span>
+          <small>cached 0.013&#x2f;M</small>
+        </div>
+        <div>
+          <span>
+            0.52<span class="unit">/M</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;codestral&#x2f;">mistral&#x2f;fr&#x2f;codestral-2508</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2025-07-30
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            0.26<span class="unit">/M</span>
+          </span>
+          <small>cached 0.03&#x2f;M</small>
+        </div>
+        <div>
+          <span>
+            0.79<span class="unit">/M</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;mistral-large-3&#x2f;">mistral&#x2f;fr&#x2f;mistral-large-2512</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2025-12-02
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">image</span></span>
+  
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            0.44<span class="unit">/M</span>
+          </span>
+          <small>cached 0.04&#x2f;M</small>
+        </div>
+        <div>
+          <span>
+            1.31<span class="unit">/M</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="cat-row is-flagship" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;mistral-large-4&#x2f;">mistral&#x2f;fr&#x2f;mistral-large-4</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+          · <a href="https://artificialanalysis.ai/models/mistral-large-4" target="_blank" rel="noopener noreferrer">AA 38.0</a>
+          
+           · 2026-10-06
+           · Preview, launch sale rate
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">image</span></span>
+  
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            0.59<span class="unit">/M</span>
+          </span>
+          <small>cached 0.06&#x2f;M</small>
+        </div>
+        <div>
+          <span>
+            1.82<span class="unit">/M</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="cat-row is-flagship" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;glm-5.3&#x2f;">mistral&#x2f;fr&#x2f;zai-glm-5-3</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Z.ai
+          
+          · <a href="https://artificialanalysis.ai/models/glm-5-3" target="_blank" rel="noopener noreferrer">AA 45.0</a>
+          
+           · 2026-09-15
+           · Third-party model hosted by Mistral
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            1.22<span class="unit">/M</span>
+          </span>
+          <small>cached 0.12&#x2f;M</small>
+        </div>
+        <div>
+          <span>
+            3.84<span class="unit">/M</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;mistral-medium-3.5-128b&#x2f;">mistral&#x2f;fr&#x2f;mistral-medium-3-5</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+          · AA 14.2
+          
+           · 2026-04-29
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">image</span></span>
+  
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            1.31<span class="unit">/M</span>
+          </span>
+          <small>cached 0.13&#x2f;M</small>
+        </div>
+        <div>
+          <span>
+            6.54<span class="unit">/M</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="cat-section" id="cat-speech" data-model-type="speech">
+  <div class="cat-head">
+    <h2>Speech</h2>
+    <p>Transcription in, speech out.</p>
+  </div>
+  <div class="cat-list">
+    <div class="cat-row cat-cols">
+      <div></div><div></div>
+      <div class="prices"><span>In €</span><span>Out €</span></div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;voxtral-tts&#x2f;">mistral&#x2f;fr&#x2f;voxtral-mini-tts-2603</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2026-03-23
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="speech"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 3.4h8.8a1.6 1.6 0 011.6 1.6v4a1.6 1.6 0 01-1.6 1.6H8.4L5.2 13.4V10.6H3.6A1.6 1.6 0 012 9V5a1.6 1.6 0 011.6-1.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="sr-only">speech</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            -
+          </span>
+          
+        </div>
+        <div>
+          <span>
+            13.96<span class="unit">/M chars</span>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;voxtral-mini-transcribe-2&#x2f;">mistral&#x2f;fr&#x2f;voxtral-mini-2602</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2026-02-04
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="speech"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 3.4h8.8a1.6 1.6 0 011.6 1.6v4a1.6 1.6 0 01-1.6 1.6H8.4L5.2 13.4V10.6H3.6A1.6 1.6 0 012 9V5a1.6 1.6 0 011.6-1.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="sr-only">speech</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            0.0026<span class="unit">/min</span>
+          </span>
+          <small>cached 0.0003&#x2f;min</small>
+        </div>
+        <div>
+          <span>
+            -
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="cat-section" id="cat-image" data-model-type="image">
+  <div class="cat-head">
+    <h2>Image</h2>
+    <p>Image generation and document reading.</p>
+  </div>
+  <div class="cat-list">
+    <div class="cat-row cat-cols">
+      <div></div><div></div>
+      <div class="prices"><span>In €</span><span>Out €</span></div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;ocr-4-1&#x2f;">mistral&#x2f;fr&#x2f;mistral-ocr-4-1</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2026-07-16
+           · OCR
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="image"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.4" width="11.6" height="9.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.9" cy="6.8" r="1.1" fill="currentColor"/><path d="M3.5 11.4l2.9-2.8 1.8 1.7 1.8-1.7 2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">image</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            3.49<span class="unit">/1000 pages</span>
+          </span>
+          <small>cached 0.35&#x2f;1000 pages</small>
+        </div>
+        <div>
+          <span>
+            -
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="cat-section" id="cat-embeddings" data-model-type="embeddings">
+  <div class="cat-head">
+    <h2>Embeddings</h2>
+    <p>Text and image turned into vectors. Input tokens only.</p>
+  </div>
+  <div class="cat-list">
+    <div class="cat-row cat-cols">
+      <div></div><div></div>
+      <div class="prices"><span>In €</span><span>Out €</span></div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;codestral-embed&#x2f;">mistral&#x2f;fr&#x2f;codestral-embed-2505</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2025-05-28
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="embeddings"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="4" cy="11.6" r="1.4" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="11.6" r="1.4" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="4.2" r="1.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4.6 10.4L7.4 5.4M8.6 5.4l2.8 5M5.4 11.6h5.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="sr-only">embeddings</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            0.13<span class="unit">/M</span>
+          </span>
+          
+        </div>
+        <div>
+          <span>
+            -
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="cat-section" id="cat-moderation" data-model-type="moderation">
+  <div class="cat-head">
+    <h2>Moderation</h2>
+    <p>Classifiers for screening prompts and outputs.</p>
+  </div>
+  <div class="cat-list">
+    <div class="cat-row cat-cols">
+      <div></div><div></div>
+      <div class="prices"><span>In €</span><span>Out €</span></div>
+    </div>
+    
+    <div class="cat-row" data-model-row>
+      <div class="model">
+        <span class="name"><a href="&#x2f;catalogue&#x2f;models&#x2f;mistral-moderation-2&#x2f;">mistral&#x2f;fr&#x2f;mistral-moderation-2603</a></span>
+        <span class="meta">
+          <a href="&#x2f;catalogue&#x2f;provider&#x2f;mistral&#x2f;">Mistral</a> · Mistral
+          
+           · 2026-03-01
+          
+        </span>
+      </div>
+      <div class="mods">
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+        <span class="arrow" aria-hidden="true">→</span>
+        
+  <span class="mod" title="text"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr-only">text</span></span>
+  
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            -
+          </span>
+          
+        </div>
+        <div>
+          <span>
+            -
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<p class="cat-empty" id="catalog-empty" role="status" aria-live="polite" hidden>No models match these filters.</p>
+<script>
+  (() => {
+    const filterInput = document.querySelector('#model-filter');
+    const typeFilters = [...document.querySelectorAll('[data-type-filter]')];
+    const modelRows = [...document.querySelectorAll('[data-model-row]')];
+    const sections = [...document.querySelectorAll('.cat-section')];
+    const emptyMessage = document.querySelector('#catalog-empty');
+    let activeType = null;
+
+    const applyFilters = () => {
+      const query = filterInput.value.trim().toLowerCase();
+      for (const typeFilter of typeFilters) {
+        typeFilter.setAttribute('aria-pressed', String(typeFilter.dataset.typeFilter === activeType));
+      }
+      for (const row of modelRows) {
+        const typeMatches = !activeType || row.closest('[data-model-type]').dataset.modelType === activeType;
+        const queryMatches = !query || row.textContent.toLowerCase().includes(query);
+        row.classList.toggle('filtered-row', !typeMatches || !queryMatches);
+      }
+      let hasVisibleRow = false;
+      for (const section of sections) {
+        const hasVisibleSectionRow = [...section.querySelectorAll('[data-model-row]')]
+          .some(row => !row.classList.contains('filtered-row'));
+        section.classList.toggle('filtered-section', !hasVisibleSectionRow);
+        hasVisibleRow ||= hasVisibleSectionRow;
+      }
+      emptyMessage.hidden = hasVisibleRow;
+    };
+
+    for (const typeFilter of typeFilters) {
+      typeFilter.addEventListener('click', event => {
+        event.preventDefault();
+        const type = typeFilter.dataset.typeFilter;
+        activeType = activeType === type ? null : type;
+        applyFilters();
+      });
+    }
+
+    filterInput.addEventListener('input', applyFilters);
+  })();
+</script>
+
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div class="footer-brand">
+          <a class="brand inverse" href="/"><img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109"><span>Model Pond</span></a>
+          <p>Unified gateway for private AI compute.
+        </div>
+        <div class="footer-links">
+          <div><p class="footer-label">Product</p><a href="/instruct/">Instruct</a><a href="/gateway/">Gateway</a><a href="/code/">Code</a><a href="/batch/">Batch</a><a href="/catalogue/">Catalogue</a></div>
+          <div><p class="footer-label">Policy</p><a href="/privacy/">Privacy</a><a href="/#pricing">Pricing</a><p class="footer-label later">Contact</p><a href="mailto:hello@modelpond.eu">hello@modelpond.eu</a></div>
+        </div>
+        <div class="footer-meta"><span>EU-hosted infrastructure</span><span class="footer-copy">© 2026 Model Pond</span></div>
+      </div>
+    </footer>
+  </body>
+</html>

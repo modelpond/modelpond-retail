@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 500 500"
+   fill-rule="evenodd"
+   clip-rule="evenodd"
+   stroke-linejoin="round"
+   stroke-miterlimit="2"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="kimi.svg"
+   width="500"
+   height="500"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.5683594"
+     inkscape:cx="252.49315"
+     inkscape:cy="251.53674"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <path
+     d="m 500,110 v 280 c 0,60.711 -49.29,110 -110,110 H 110 C 49.289,500 0,450.711 0,390 V 110 C 0,49.29 49.289,0 110,0 h 280 c 60.71,0 110,49.29 110,110 z"
+     id="path1" />
+  <path
+     d="m 339.065,185.426 c 1.886,-2.42 3.541,-4.63 5.289,-6.77 0.81,-1.007 0.74,-1.771 -0.046,-2.824 -7.58,-9.965 -8.298,-21.028 -3.935,-32.254 3.275,-8.448 10.52,-12.406 19.373,-13.25 5.52,-0.521 10.936,0.046 15.959,2.73 6.596,3.53 10.438,8.912 11.688,16.341 0.995,5.926 0.81,11.712 -0.868,17.452 -2.974,10.161 -10.277,15.427 -20.287,16.758 -8.31,1.11 -16.734,1.25 -25.113,1.817 -0.648,0.046 -1.308,0 -2.06,0 z"
+     fill="#027aff"
+     id="path2" />
+  <path
+     d="m 318.512,139.921 h -50.064 l -39.637,90.384 h -56.036 v -89.99 H 128 v 232.868 h 44.787 V 275.08 h 78.973 c 13.598,0 26.015,-7.927 31.744,-20.252 v 118.355 h 44.787 V 275.08 c 0,-23.342 -18.239,-42.97 -41.523,-44.671 v -0.116 h -24.593 a 45.577,45.577 0 0 0 26.884,-24.534 z"
+     fill="#ffffff"
+     id="path3" />
+</svg>

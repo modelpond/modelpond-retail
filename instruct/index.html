@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Reference information for the Model Pond Instruct product: encrypted conversation storage, teams, temporary chats and web search." />
+    <title>Model Pond: Instruct</title>
+    <link rel="icon" href="/static/favicon.ico" />
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    
+<link rel="stylesheet" href="/static/product.css" />
+
+  </head>
+  <body>
+    <header class="site-header pinned">
+      <div class="shell nav-wrap">
+        <a class="brand" href="/" aria-label="Model Pond home">
+          <img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109">
+          <span>Model Pond</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="/instruct/" aria-current="page">Instruct</a>
+          <a href="/gateway/" >Gateway</a>
+          <a href="/code/" >Code</a>
+          <a href="/batch/" >Batch</a>
+          <a href="/catalogue/" >Catalogue</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button button-small" href="https://app.modelpond.eu/">Sign In <span aria-hidden="true">↗</span></a>
+          <details class="mobile-nav">
+            <summary class="menu-toggle">
+              <span class="sr-only">Toggle menu</span>
+              <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+            </summary>
+            <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+              <a href="/instruct/" aria-current="page">Instruct</a>
+              <a href="/gateway/" >Gateway</a>
+              <a href="/code/" >Code</a>
+              <a href="/batch/" >Batch</a>
+              <a href="/catalogue/" >Catalogue</a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="shell doc-main">
+      
+<div class="doc-wrap">
+        <h1>Instruct</h1>
+        <p class="doc-lede">A model instruction interface of the kind you already know, with conversation storage that only the account holding it can open.
+
+        <div class="doc-meta">
+          <span>Encrypted at rest</span>
+          <span>Teams and shared folders</span>
+          <span>Temporary chats</span>
+          <span>Web search via Bing</span>
+        </div>
+
+        <section class="doc-section">
+          <h2>The interface</h2>
+          <p>Conversations, a thread view and a composer, with model selection and web search available per conversation. If you have used ChatGPT or Claude, the shape is familiar; the difference is where the conversation is kept and who can open it.
+          <p>Requests made from Instruct go through the <a href="/gateway/">gateway</a>, so the same provider routing applies to what you type here as to anything you send over the API.
+        </section>
+
+        <section class="doc-section">
+          <h2>Storage and access</h2>
+          <p>Conversations are stored encrypted at rest. The stored form cannot be read with an account's login credentials alone being present: an account's conversations are accessible only to that account, and opening them requires its credentials.
+          <p class="note">This is the storage guarantee as it applies to Instruct. Terms agreed with the model providers behind each conversation are described on the privacy page.
+        </section>
+
+        <section class="doc-section">
+          <h2>Accounts, billing and teams</h2>
+          <p>Many users can be associated with a single billing account, so a group of people can be billed as one. Users within a billing account can be divided into teams, and folders can be shared with a team so that its members reach the same conversations.
+          <table class="doc-table">
+            <thead>
+              <tr><th>Level</th><th>What it groups</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Billing account</td><td class="dim">One or more users, billed together</td></tr>
+              <tr><td>User</td><td class="dim">A person with their own credentials and conversations</td></tr>
+              <tr><td>Team</td><td class="dim">A subset of users within a billing account</td></tr>
+              <tr><td>Shared folder</td><td class="dim">Conversations visible to a team</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="doc-section">
+          <h2>Instruct for less than the cost of a Claude subscription</h2>
+          <p>Instruct is not sold by the month. You top up a balance and the conversation draws on it, so the only cost is the model requests you actually make plus the 2.5% markup on the provider's list price. There is no seat, no minimum and no fee for a month you barely use.
+          <p>Credit never expires. A top-up sits on the account until it is spent, and nothing renews in the background waiting to be cancelled.
+          <p>Claude is around $20 a month, which is $240 a year whether or not you use it. Two things stretch a balance here further: you choose the model per conversation rather than per subscription, and the charge follows each request rather than each month. The most cost-efficient models in the <a href="/catalogue/">catalogue</a> answer an exchange of a few hundred words each way for a fraction of a cent, so a typical user on those models can expect $10 of credit to cover a year or more.
+          <p class="note">What a top-up buys depends on how much you write and which models you reach for. Anyone running flagship models hard will spend faster, and a team shares one balance rather than one bill per person. Both the choice and the spending stay in your hands.
+        </section>
+
+        <section class="doc-section">
+          <h2>Logging</h2>
+          <p>Instruct follows the same policy as the rest of the service: conversations are not logged. Temporary chats leave no trace at all — once the conversation is over there is nothing retained to recover, by you or by us.
+        </section>
+
+        <section class="doc-section">
+          <h2>Web search</h2>
+          <p>Web search is offered through Bing. When it is used in a conversation, the search results needed to answer the query are retrieved and passed to the model along with your message.
+          <p class="note">Search is a request to a third party, so it sits outside the provider terms that cover model inference. Treat the search text as you would any query you type into a search engine.
+        </section>
+
+        <section class="doc-section read-next" aria-labelledby="read-next-title">
+          <h2 class="read-next__title" id="read-next-title">What to read next</h2>
+          <div class="read-next__grid">
+            <a class="read-next__card" href="/gateway/">
+              <span class="read-next__card-title">Gateway</span>
+              <span class="read-next__card-text">Compatible APIs, routing, hosting and the metrics recorded.</span>
+              <span class="read-next__link">Read about Gateway</span>
+            </a>
+            <a class="read-next__card" href="/privacy/">
+              <span class="read-next__card-title">Privacy</span>
+              <span class="read-next__card-text">Zero retention terms and provider criteria.</span>
+              <span class="read-next__link">Read about Privacy</span>
+            </a>
+            <a class="read-next__card" href="/catalogue/">
+              <span class="read-next__card-title">Catalogue</span>
+              <span class="read-next__card-text">Every model available to Instruct and to the API.</span>
+              <span class="read-next__link">Read about Catalogue</span>
+            </a>
+          </div>
+        </section>
+      </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div class="footer-brand">
+          <a class="brand inverse" href="/"><img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109"><span>Model Pond</span></a>
+          <p>Unified gateway for private AI compute.
+        </div>
+        <div class="footer-links">
+          <div><p class="footer-label">Product</p><a href="/instruct/">Instruct</a><a href="/gateway/">Gateway</a><a href="/code/">Code</a><a href="/batch/">Batch</a><a href="/catalogue/">Catalogue</a></div>
+          <div><p class="footer-label">Policy</p><a href="/privacy/">Privacy</a><a href="/#pricing">Pricing</a><p class="footer-label later">Contact</p><a href="mailto:hello@modelpond.eu">hello@modelpond.eu</a></div>
+        </div>
+        <div class="footer-meta"><span>EU-hosted infrastructure</span><span class="footer-copy">© 2026 Model Pond</span></div>
+      </div>
+    </footer>
+  </body>
+</html>

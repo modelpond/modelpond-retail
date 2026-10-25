@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="147.27499"
+   height="145.50999"
+   viewBox="0 0 147.27499 145.50999"
+   fill="none"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="Qwen_logo.svg"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.015"
+     inkscape:cx="72.229141"
+     inkscape:cy="82.56538"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     d="m 147.275,91.23 -19.44,-33.75 10.26,-17.25 c 0.82,-1.44 0.82,-3.22 0,-4.66 l -10.26,-17.25 c -0.52,-0.93 -1.51,-1.51 -2.6,-1.51 h -37.9 L 78.595,1.51 C 78.075,0.58 77.085,0 75.995,0 h -20.24 c -1.09,0 -2.08,0.58 -2.6,1.51 l -19.44,33.74 h -20.24 c -1.09,0 -2.08,0.58 -2.6,1.51 L 0.615,54.01 c -0.82,1.44 -0.82,3.22 0,4.66 l 17.36,31.31 -8.74,15.3 c -0.82,1.44 -0.82,3.22 0,4.66 l 10.26,17.25 c 0.52,0.93 1.51,1.51 2.6,1.51 h 37.9 l 8.74,15.3 c 0.52,0.93 1.51,1.51 2.6,1.51 h 20.24 c 1.09,0 2.08,-0.58 2.6,-1.51 l 19.44,-33.74 h 17.36 c 1.09,0 2.08,-0.58 2.6,-1.51 l 10.26,-17.25 c 0.82,-1.44 0.82,-3.22 0,-4.66 z"
+     fill="url(#paint0_radial)"
+     id="path1"
+     style="fill:url(#paint0_radial)" />
+  <path
+     d="m 91.575,145.51 h -20.24 l -11.34,-18.32 h -37.9 l 11.62,-18.32 h 19.44 l -42.28,-71.1 h 22.84 l 22.04,-36.26 10.26,18.32 -10.26,17.94 h 78.28 l -10.26,17.25 19.44,33.74 h -19.44 l -10.16,-17.94 -39.98,74.69 z"
+     fill="#ffffff"
+     id="path2" />
+  <path
+     d="m 100.315,62.31 h -51.72 l 25.04,42.28 z"
+     fill="url(#paint1_radial)"
+     id="path3"
+     style="fill:url(#paint1_radial)" />
+  <defs
+     id="defs6">
+    <radialGradient
+       id="paint0_radial"
+       cx="0"
+       cy="0"
+       r="1"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,100,-100,0,72.455,82.48)">
+      <stop
+         stop-color="#665CEE"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#332E91"
+         id="stop4" />
+    </radialGradient>
+    <radialGradient
+       id="paint1_radial"
+       cx="0"
+       cy="0"
+       r="1"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,100,-100,0,72.455,82.48)">
+      <stop
+         stop-color="#665CEE"
+         id="stop5" />
+      <stop
+         offset="1"
+         stop-color="#332E91"
+         id="stop6" />
+    </radialGradient>
+  </defs>
+</svg>
