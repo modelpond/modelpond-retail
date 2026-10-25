@@ -1,0 +1,68 @@
+name: Publish public retail repository
+
+on:
+  push:
+    tags:
+      - "push-public-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-public-retail
+  cancel-in-progress: false
+
+env:
+  TARGET_REPOSITORY: modelpond/modelpond-retail
+  TARGET_BRANCH: master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          path: source
+          persist-credentials: false
+
+      - name: Check out publishing repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.TARGET_REPOSITORY }}
+          ref: ${{ env.TARGET_BRANCH }}
+          path: publish
+          token: ${{ secrets.MPADMIN_GITHUB_TOKEN }}
+          persist-credentials: false
+
+      - name: Publish tagged source
+        env:
+          GH_TOKEN: ${{ secrets.MPADMIN_GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          source_tag="$GITHUB_REF_NAME"
+          if [[ ! "$source_tag" =~ ^push-public-[0-9]{8}$ ]]; then
+            echo "Refusing to publish invalid source tag: $source_tag" >&2
+            exit 1
+          fi
+          public_tag="${source_tag#push-}"
+
+          rsync --archive --delete --exclude='.git/' \
+            "${GITHUB_WORKSPACE}/source/" \
+            "${GITHUB_WORKSPACE}/publish/"
+
+          rm -rf -- publish/private/
+
+          git -C publish config user.name "Model Pond Admin"
+          git -C publish config user.email "github@modelpond.eu"
+          git -C publish add -A
+          git -C publish commit --allow-empty --message="Tag ${public_tag}"
+          git -C publish tag "$public_tag"
+
+          git -C publish push --atomic \
+            "https://x-access-token:${GH_TOKEN}@github.com/${TARGET_REPOSITORY}.git" \
+            "HEAD:refs/heads/${TARGET_BRANCH}" \
+            "+refs/tags/${public_tag}"

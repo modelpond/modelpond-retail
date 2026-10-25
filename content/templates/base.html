@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{% block description %}Model Pond is an EU-hosted large language model gateway with unified billing and search tools.{% endblock %}" />
+    <title>{% block title %}Model Pond: EU LLM Gateway{% endblock %}</title>
+    <link rel="icon" href="/static/favicon.ico" />
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <header class="site-header{% block header_class %}{% endblock %}">
+      <div class="shell nav-wrap">
+        <a class="brand" href="/" aria-label="Model Pond home">
+          <img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109">
+          <span>Model Pond</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="/instruct/" {% if page == "instruct" %}aria-current="page"{% endif %}>Instruct</a>
+          <a href="/gateway/" {% if page == "gateway" %}aria-current="page"{% endif %}>Gateway</a>
+          <a href="/code/" {% if page == "code" %}aria-current="page"{% endif %}>Code</a>
+          <a href="/batch/" {% if page == "batch" %}aria-current="page"{% endif %}>Batch</a>
+          <a href="/catalogue/" {% if page == "catalogue" or page == "catalogue-provider" or page == "catalogue-model" %}aria-current="page"{% endif %}>Catalogue</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button button-small" href="https://app.modelpond.eu/">Sign In <span aria-hidden="true">↗</span></a>
+          <details class="mobile-nav">
+            <summary class="menu-toggle">
+              <span class="sr-only">Toggle menu</span>
+              <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+            </summary>
+            <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+              <a href="/instruct/" {% if page == "instruct" %}aria-current="page"{% endif %}>Instruct</a>
+              <a href="/gateway/" {% if page == "gateway" %}aria-current="page"{% endif %}>Gateway</a>
+              <a href="/code/" {% if page == "code" %}aria-current="page"{% endif %}>Code</a>
+              <a href="/batch/" {% if page == "batch" %}aria-current="page"{% endif %}>Batch</a>
+              <a href="/catalogue/" {% if page == "catalogue" or page == "catalogue-provider" or page == "catalogue-model" %}aria-current="page"{% endif %}>Catalogue</a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main id="{% block main_id %}top{% endblock %}" class="{% block main_class %}shell doc-main{% endblock %}">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div class="footer-brand">
+          <a class="brand inverse" href="/"><img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109"><span>Model Pond</span></a>
+          <p>Unified gateway for private AI compute.
+        </div>
+        <div class="footer-links">
+          <div><p class="footer-label">Product</p><a href="/instruct/">Instruct</a><a href="/gateway/">Gateway</a><a href="/code/">Code</a><a href="/batch/">Batch</a><a href="/catalogue/">Catalogue</a></div>
+          <div><p class="footer-label">Policy</p><a href="/privacy/">Privacy</a><a href="/#pricing">Pricing</a><p class="footer-label later">Contact</p><a href="mailto:hello@modelpond.eu">hello@modelpond.eu</a></div>
+        </div>
+        <div class="footer-meta"><span>EU-hosted infrastructure</span><span class="footer-copy">© {{ year }} Model Pond</span></div>
+      </div>
+    </footer>
+  </body>
+</html>

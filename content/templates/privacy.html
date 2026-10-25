@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% block title %}Model Pond: Privacy{% endblock %}
+{% block description %}Reference information for Model Pond privacy: zero retention as a term of service, a data-minimised design, the criteria a provider must meet to serve a request, remote attestation of the data plane, and the records kept for billing.{% endblock %}
+{% block header_class %} pinned{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/product.css" />
+{% endblock %}
+{% block content %}
+<div class="doc-wrap">
+        <h1>Our Approach To Privacy</h1>
+        <p class="doc-lede">Model Pond is a response to the problem of
+        benefiting from AI without worrying about our information. We approach
+        retained data as a hazard to us and to you, and go to extremes to avoid
+        retention when possible.
+
+        <p>
+        Zero retention is central to the service and also a hard requirement
+        for every listed provider.
+
+        <div class="doc-meta">
+          <span>Data-minimised by design</span>
+          <span>Zero retention by default</span>
+          <span>One session cookie</span>
+          <span>Remote attestation</span>
+        </div>
+
+        <section class="doc-section">
+          <h2>What we keep</h2>
+          <p>Requests are served and let go. A prompt and its response live for as long as it takes to answer them, and the service is built so that this is a property of the design rather than a promise about behaviour.
+          <p>What we keep is what it takes to bill you: counters and amounts attributed to an API key and a target model, held against a billing period rather than with the time of an individual request. That is the whole of the record, worked back from the purpose it serves. The full list is on the <a href="/gateway/">gateway page</a>.
+          <p class="note">The figures kept are those that calculate usage, at the level of totals for a billing period.
+        </section>
+
+        <section class="doc-section">
+          <h2>Cookies and accounts</h2>
+          <p>Every item below is held because the service needs it to work. Minimisation is the design rule — narrow the purpose, and less has to be held — so each element answers to a purpose that requires it.
+          <table class="doc-table">
+            <thead>
+              <tr><th>Item</th><th>Detail</th><th>Held because</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Cookie</td><td class="dim">A single cookie is used to track your login session.</td><td class="dim">A session has to persist between requests</td></tr>
+              <tr><td>Requests</td><td class="dim">Served and answered; the counters above are the record kept</td><td class="dim">Billing counts usage</td></tr>
+              <tr><td>Account</td><td class="dim">A username and a password</td><td class="dim">Sign-in needs a credential to check</td></tr>
+              <tr><td>Email address</td><td class="dim">You can register with a username instead of an email address.</td><td class="dim">A username carries the account, so contact details stay yours to give</td></tr>
+              <tr><td>Payment</td><td class="dim">A balance topped up by bank transfer</td><td class="dim">The balance has to be settled</td></tr>
+              <tr><td>Billing records</td><td class="dim">A payment is recorded against the balance it settles, kept apart from the account it tops up</td><td class="dim">Settling a balance needs the amount it carries</td></tr>
+            </tbody>
+          </table>
+          <p>The result is an account that signs in with a username and a password, settles a balance by transfer, and gives a name or an email address only if its holder chooses to. Personal data is collected where a stated purpose requires it; the purpose here is running an account and billing for usage, which a username, a credential, a balance and a set of counters cover between them.
+          <p>We do not store your username or email address. We store only a one-way transformation of it that lets us find your account when you sign in.
+          <p>During signup, we use Spur, a third-party service, to verify your connection. The information used for this verification is not stored following signup.
+          <p>That is a data-minimised design, and it is compatible with GDPR as it applies across the EU and EEA. Data minimisation is a requirement of the regulation, privacy by design and pseudonymous accounts are established practice under it, and it places no general requirement on an ordinary online service to hold a real name or an email address.
+        </section>
+
+        <section class="doc-section" id="location">
+          <h2>Location</h2>
+          <p>Instruct can infer your rough location using GeoIP information and by asking your web browser for its current timezone. This significantly improves model responses, but may be disabled in the Privacy settings section.
+          <p>Like all other user information, location information is never logged by Model Pond. When it is active, it is stored encrypted at rest alongside all of your other private Instruct data.
+        </section>
+
+        <section class="doc-section">
+          <h2>Zero retention as the default</h2>
+          <p>Most gateways offer zero data retention as an opt-in filter. It is switched on per model group and, once enabled, it narrows the endpoints available to you.
+          <p>Here the service runs in that state always. Retention terms are agreed with each provider before it begins serving, and every provider carried has met them, so the terms apply to each request by construction. Collection and retention are the same rule applied at two points: hold what the purpose needs, and hold it for as long as the purpose lasts.
+          <table class="doc-table">
+            <thead>
+              <tr><th>Retention</th><th>Model Pond</th><th>Typical gateway</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Status</td><td class="dim">Required, always on</td><td class="dim">Conditional, opt-in</td></tr>
+              <tr><td>Granularity</td><td class="dim">A condition of serving any request</td><td class="dim">Set per model group</td></tr>
+              <tr><td>Verification</td><td class="dim">Checked before a provider serves</td><td class="dim">Carried on the assumption of retention</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="doc-section">
+          <h2>Provider criteria</h2>
+          <p>Every provider meets all of these before a request is routed to it. The criteria cover where the company sits, where the hardware runs, and what interest the company has in the traffic.
+          <table class="doc-table">
+            <thead>
+              <tr><th>Criterion</th><th>Why it matters</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>European-owned</td><td class="dim">The company serving the request answers to European law</td></tr>
+              <tr><td>European-domiciled</td><td class="dim">Its obligations sit with a company inside Europe</td></tr>
+              <tr><td>Infrastructure in Europe</td><td class="dim">Processing happens where those terms apply</td></tr>
+              <tr><td>European path end to end</td><td class="dim">The route to the provider keeps proxy and CDN layers inside Europe</td></tr>
+              <tr><td>Published retention policy</td><td class="dim">Explicit, public terms for what is kept and for how long</td></tr>
+              <tr><td>Runtime IP and ASN checks</td><td class="dim">Their public interfaces are checked as they are reached</td></tr>
+              <tr><td>Infrastructure businesses</td><td class="dim">Companies that earn their revenue from serving traffic</td></tr>
+            </tbody>
+          </table>
+          <p>The last of these is the narrowest filter. A provider whose revenue comes from serving traffic has that as its interest in a request; a company with models of its own has an interest in what the request contains.
+          <p>Providers applying these terms implement GDPR <nobr>Article 5(1)</nobr> requirements for data minimisation and confidentiality. Which provider serves which model is listed on the <a href="/catalogue/">catalogue</a>.
+        </section>
+
+        <section class="doc-section">
+          <h2>Our Infrastructure</h2>
+          <p>We run our software on physical hardware with no third party
+          hypervisors running underneath. These computers are configured to use
+          Secure Boot using signing keys we control, into an operating system
+          image and serving software we build. Every step is measured using the
+          hardware Trusted Platform Module, and can be verified in the response
+          headers of every request you make.
+
+          <p>Our approach to third party networking infrastructure is
+          identical: the first computer decrypting your request is ours. We do
+          not use third party content distribution networks or load balancers.
+          
+        </section>
+
+        <section class="doc-section">
+          <h2>Our Software</h2>
+          <p>The data plane software and its build process is open to public
+          inspection. A narrow interface exists allowing authentication,
+          billing and abuse prevention to occur in a separate module we do not
+          publish, but that module verifiably has no access to the user traffic
+          or data.
+
+          <p>
+          <a href="https://github.com/modelpond/">View our build process on
+          GitHub</a>
+        </section>
+
+        <section class="doc-section">
+          <h2>Attestation</h2>
+          <p>Attestation makes any change to the service visible. A change that went unpublished would show up as a mismatch between what runs and what is published, and anyone can see it.
+          <p>Every copy of our software we run is also publicly released, along with the OS image each copy booted on. Both are public, so a third party can build the same thing from the same sources and check that what we operate is identical. The comparison is against a build someone else produced.
+          <p>Attestation is anchored in hardware. The list of TPM keys belonging to the hardware we operate is published, and each response from the API carries a header containing a temporary key recently signed by the TPM, together with a signature over your request.
+          <ul class="doc-list">
+            <li>The TPM keys of the hardware in service are published.</li>
+            <li>Every API response carries a temporary key signed by the TPM.</li>
+            <li>The same response carries a signature over the request it answers.</li>
+            <li>The software and the OS image it booted on are public, so the running version can be compared with a build made elsewhere.</li>
+          </ul>
+          <p class="note">A signature over the request is what lets you tell a response from the service apart from one manufactured by something sitting in front of it.
+        </section>
+
+        <section class="doc-section">
+          <h2>Bulk requests</h2>
+          <p>Batch jobs involve a file of requests large enough to be worth writing to disk. Such a file is encrypted under a key generated for that job and held only in memory. The file is readable for as long as that key lives: a restart clears the key, and the file on disk stays encrypted. Protection and disposal are the same mechanism.
+          <p>Turnaround, billing and provider support for bulk work are described on the <a href="/batch/">batch page</a>.
+        </section>
+
+        <section class="doc-section">
+          <h2>Web search</h2>
+          <p>Search is a request to a third party rather than to a model provider on this service. When it is used, the query text is sent to the search engine and the results needed to answer it are retrieved and passed to the model alongside your message.
+          <p class="note">Search therefore sits outside the provider terms that cover model inference. Treat search text as you would any query typed into a search engine.
+          <p class="note">The search provider and the terms it applies are still being settled; this section will name them once that is confirmed.
+        </section>
+
+        <section class="doc-section read-next" aria-labelledby="read-next-title">
+          <h2 class="read-next__title" id="read-next-title">What to read next</h2>
+          <div class="read-next__grid">
+            <a class="read-next__card" href="/gateway/">
+              <span class="read-next__card-title">Gateway</span>
+              <span class="read-next__card-text">Compatible APIs, routing, hosting and the metrics recorded.</span>
+              <span class="read-next__link">Read about Gateway</span>
+            </a>
+            <a class="read-next__card" href="/instruct/">
+              <span class="read-next__card-title">Instruct</span>
+              <span class="read-next__card-text">Encrypted conversation storage, teams and temporary chats.</span>
+              <span class="read-next__link">Read about Instruct</span>
+            </a>
+            <a class="read-next__card" href="/batch/">
+              <span class="read-next__card-title">Batch</span>
+              <span class="read-next__card-text">Bulk jobs, turnaround and provider support.</span>
+              <span class="read-next__link">Read about Batch</span>
+            </a>
+            <a class="read-next__card" href="/catalogue/">
+              <span class="read-next__card-title">Catalogue</span>
+              <span class="read-next__card-text">Every model, its provider and its rates.</span>
+              <span class="read-next__link">Read about Catalogue</span>
+            </a>
+          </div>
+        </section>
+      </div>
+{% endblock %}

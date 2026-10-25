@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Model Pond: Gateway{% endblock %}
+{% block description %}Reference information for the Model Pond gateway: compatible APIs, routing, hosting and the metrics it records.{% endblock %}
+{% block header_class %} pinned{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/product.css" />
+{% endblock %}
+{% block content %}
+<div class="doc-wrap">
+        <h1>Gateway</h1>
+        <p class="doc-lede">A routing layer for text, image and audio model requests. It speaks three client APIs and sends each request to a provider you choose.
+
+        <div class="doc-meta">
+          <span>OpenAI-compatible</span>
+          <span>Anthropic-compatible</span>
+          <span>TypeScript AI-compatible</span>
+          <span>Fallback routing optional</span>
+        </div>
+
+        <section class="doc-section">
+          <h2>What it is for</h2>
+          <p>A given model is usually available from more than one provider. The gateway lets you choose which of them serves each request, so the provider is a configuration decision rather than something baked into your application. One endpoint, one credential, and the ability to move a workload between providers without changing client code.
+          <p>Fallback routing is optional. Where you nominate an alternate provider for a target, a request that fails against the selected provider can be retried against the alternate. Where you do not, requests go to the selected provider only.
+        </section>
+
+        <section class="doc-section">
+          <h2>Compatible APIs</h2>
+          <p>The gateway exposes three client-facing APIs. Each is a drop-in replacement for the API it is named after, so an existing client needs only its base URL and credential changed.
+          <table class="doc-table">
+            <thead>
+              <tr><th>API</th><th>Base URL</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Anthropic</td>
+                <td><code>api.euw1.modelpond.eu/anthropic</code></td>
+                <td class="dim">Messages endpoint</td>
+              </tr>
+              <tr>
+                <td>OpenAI</td>
+                <td><code>api.euw1.modelpond.eu/openai</code></td>
+                <td class="dim">Chat completions and the rest of the OpenAI surface</td>
+              </tr>
+              <tr>
+                <td>TypeScript AI</td>
+                <td><code>api.euw1.modelpond.eu/ai</code></td>
+                <td class="dim">For clients built on the TypeScript AI SDK</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="note">The path segment for each API is shown as a placeholder pending confirmation; the host <code>api.euw1.modelpond.eu</code> is the one in use. Update the three rows above and the snippets below when the final paths are settled.
+
+          <h3>Pointing an existing client at the gateway</h3>
+          <div class="doc-code">// OpenAI-compatible clients
+new OpenAI({ baseURL: "https://api.euw1.modelpond.eu/openai/v1", apiKey: KEY })
+
+// Anthropic-compatible clients
+new Anthropic({ baseURL: "https://api.euw1.modelpond.eu/anthropic", apiKey: KEY })
+
+// TypeScript AI SDK
+createOpenAI({ baseURL: "https://api.euw1.modelpond.eu/ai/v1", apiKey: KEY })</div>
+          <p class="note">Only the base URL and credential change. Model names are the target model identifiers from the catalogue, with the provider prefix retained so the target is unambiguous.
+        </section>
+
+        <section class="doc-section">
+          <h2>Hosting</h2>
+          <p>The gateway runs only on infrastructure Model Pond manages. Requests are terminated there, routed, and forwarded to the backend provider that serves the model.
+          <p>Nothing else inspects the data flowing through the gateway. The only parties that see a request or its response are Model Pond's own routing layer and the backend provider serving it. No third-party inspection, analytics or content moderation sits in the path.
+        </section>
+
+        <section class="doc-section">
+          <h2>What is recorded</h2>
+          <p>The gateway does not log requests. It records a fixed set of counters and amounts, and nothing else:
+          <table class="doc-table">
+            <thead>
+              <tr><th>Recorded</th><th>Detail</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Time taken</td><td class="dim">Duration of the request</td></tr>
+              <tr><td>Success and failure counts</td><td class="dim">Number of requests that succeeded or failed</td></tr>
+              <tr><td>Total input tokens</td><td class="dim">Including cached input tokens</td></tr>
+              <tr><td>Cached tokens</td><td class="dim">Counted separately from total input</td></tr>
+              <tr><td>Output tokens</td><td class="dim">Tokens generated in the response</td></tr>
+            </tbody>
+          </table>
+          <p>These figures are attributed to the API key that made the request and to the target model it was sent to. Requests are recorded as having taken place within a billing period; the exact time of an individual request is not recorded. That is the whole of the record: no prompt, no response, no per-request timestamp.
+        </section>
+
+        <section class="doc-section">
+          <h2>Catalogue</h2>
+          <p>Models available through the gateway, with the provider behind each one, the modalities it accepts and produces, and its rates, are listed on the <a href="/catalogue/">catalogue page</a>. Where a model is offered by several providers, each appears as its own row with the provider prefix naming the target.
+        </section>
+
+        <section class="doc-section read-next" aria-labelledby="read-next-title">
+          <h2 class="read-next__title" id="read-next-title">What to read next</h2>
+          <div class="read-next__grid">
+            <a class="read-next__card" href="/privacy/">
+              <span class="read-next__card-title">Privacy</span>
+              <span class="read-next__card-text">Zero retention terms, provider criteria and the attestation of the data plane.</span>
+              <span class="read-next__link">Read about Privacy</span>
+            </a>
+            <a class="read-next__card" href="/catalogue/">
+              <span class="read-next__card-title">Catalogue</span>
+              <span class="read-next__card-text">Every model, its provider and its rates.</span>
+              <span class="read-next__link">Read about Catalogue</span>
+            </a>
+            <a class="read-next__card" href="/batch/">
+              <span class="read-next__card-title">Batch</span>
+              <span class="read-next__card-text">Bulk jobs, turnaround and which providers support them.</span>
+              <span class="read-next__link">Read about Batch</span>
+            </a>
+            <a class="read-next__card" href="/#pricing">
+              <span class="read-next__card-title">Pricing</span>
+              <span class="read-next__card-text">How the 2.5% markup is applied.</span>
+              <span class="read-next__link">Read about Pricing</span>
+            </a>
+          </div>
+        </section>
+      </div>
+{% endblock %}

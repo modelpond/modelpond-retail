@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}Model Pond: EU LLM Gateway{% endblock %}
+{% block description %}Model Pond is an EU-hosted large language model gateway with unified billing and search tools.{% endblock %}
+{% block header_class %}{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block main_id %}top{% endblock %}
+{% block main_class %}{% endblock %}
+{% block content %}
+<section class="hero section-dark">
+        <picture class="hero-art">
+          <source srcset="/static/splash.webp" type="image/webp" />
+          <img src="/static/splash.png" width="1000" height="563" alt="" />
+        </picture>
+        <div class="shell hero-single">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR GATEWAY TO PRIVATE AI
+          <h1>Don&rsquo;t be misled</h1>
+          <p class="hero-lede">Capable AI doesn't mean divulging secrets to companies who train on them.
+          <div class="hero-actions">
+            <a class="button" href="https://app.modelpond.eu/">Get started <span aria-hidden="true">↗</span></a>
+            <a class="arrow-link light" href="#privacy">How privacy works <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-facts" aria-label="Key facts">
+            <span>European gateway, service providers, infrastructure and models</span>
+            <span>Always private</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="standard" class="section section-light">
+        <div class="shell prose-centred">
+          <div class="prose">
+            <p>Commodity AI is nowadays just as good as the frontier from US
+            providers. We provide state of the art models operating within a
+            robust privacy framework you can trust with your most sensitive
+            information.
+            <div class="vendor-marks">
+              {% for vendor in catalog.vendors %}
+              {% if vendor.homepage_featured and vendor.logo %}
+              <img src="/static/catalog/models/{{ vendor.logo|safe }}" alt="{{ vendor.name }}" title="{{ vendor.name }}">
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-paper use-section" aria-label="Use cases">
+        <div class="shell use-grid">
+          <article class="use-item">
+            <h3>Instruct</h3>
+            <p>Instruct lets you work with AI while retaining privacy. Conversation history is encrypted at rest and totally inaccessible to us.
+            <p><a class="arrow-link use-link" href="/instruct/">Learn more about Instruct</a>
+          </article>
+          <article class="use-item">
+            <h3>Gateway</h3>
+            <p>We offer a routing fabric for text, image and audio API requests to privacy-preserving providers that logs and retains nothing.
+            <p><a class="arrow-link use-link" href="/gateway/">Learn more about the gateway</a>
+          </article>
+          <article class="use-item">
+            <h3>Code</h3>
+            <p>We provide a supported version of Codex preconfigured for our models and with telemetry disabled.
+            <p><a class="arrow-link use-link" href="/code/">Learn more about code</a>
+          </article>
+          <article class="use-item">
+            <h3>Batch</h3>
+            <p>Upload bulk data, including audio, to query or transform using AI at reduced rates.
+            <p><a class="arrow-link use-link" href="/batch/">Learn more about batch processing</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="privacy" class="section section-blue">
+        <div class="shell prose-grid">
+          <div>
+            <h2>We don't retain your data, or work with companies who do</h2>
+          </div>
+          <div class="prose">
+            <p>Our code is open source and cryptographically attested, so you can verify exactly how your data is handled. We don't track user and billing accounts, and only keep statistics to calculate usage.
+            <p>No guesswork is involved in sending data to us. Our providers are European owned, host their infrastructure in Europe, and implement GDPR <nobr>Article 5(1)</nobr> requirements for data minimisation and confidentiality.
+            <p><a class="arrow-link models-link" href="/privacy/">Learn more about our approach to privacy</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section section-light">
+        <div class="shell prose-grid">
+          <div>
+            <h2>One bill<br />2.5% markup</h2>
+          </div>
+          <div class="prose">
+            <p>Model Pond adds a small fixed 2.5% markup to the pricing of underlying providers.
+            <div class="price-plain">
+              <div class="pp-head"><span>Gateway</span><span>ZDR</span><span>Markup</span></div>
+              <div class="pp-us"><span>Model Pond</span><span class="pp-zdr pp-on">Required</span><strong>2.5%</strong></div>
+              <div><span>Typical gateway</span><span class="pp-zdr">Conditional</span><strong>10%</strong></div>
+            </div>
+            <p class="pp-note">On a conventional gateway, zero data retention is an opt-in filter rather than a default. It is enabled per model group, it drops endpoints once it is on, and providers whose policy cannot be verified are assumed to retain data.
+            <div class="model-table">
+              <div class="mt-head"><span>Model</span><span>In</span><span>Out</span><span>In €</span><span>Out €</span></div>
+              {% for model in home_flagships %}
+              <a class="mt-row" href="{{ model.model_url }}">
+                <span class="mt-name">{{ model.name }}</span>
+                <span class="mt-mod">
+                  {% for item in model.input_modalities %}<span class="mod" title="{{ item.label }}">{{ item.icon|safe }}</span>{% endfor %}
+                </span>
+                <span class="mt-mod">
+                  {% for item in model.output_modalities %}<span class="mod" title="{{ item.label }}">{{ item.icon|safe }}</span>{% endfor %}
+                </span>
+                <span class="mt-in"><strong>{{ model.input_range }}</strong></span>
+                <span class="mt-stack"><strong>{{ model.output_range }}</strong></span>
+              </a>
+              {% endfor %}
+            </div>
+            <p><a class="arrow-link models-link" href="/catalogue/">View the model catalogue</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta" class="section cta-section section-dark">
+        <div class="shell cta-inner">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> ACCESS THE GATEWAY
+          <h2>Get started now</h2>
+          <div class="cta-actions">
+            <a class="button" href="https://app.modelpond.eu/">Open Model Pond <span aria-hidden="true">↗</span></a>
+            <a class="arrow-link light" href="/privacy/">Read about privacy <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+{% endblock %}

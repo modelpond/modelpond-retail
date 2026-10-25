@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% from "model-list.html" import catalogue_list %}
+{% block title %}Model Pond: {{ model_page.name }}{% endblock %}
+{% block description %}{{ model_page.blurb }}{% endblock %}
+{% block header_class %} pinned{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/catalog.css" />
+{% endblock %}
+{% block content %}
+<section class="catalogue-entity">
+  <header class="entity-head">
+    {% if model_page.logo_url %}
+    <span class="entity-logo"><img src="{{ model_page.logo_url }}" alt="{{ model_page.company }}" /></span>
+    {% endif %}
+    <div class="entity-copy">
+      <p class="eyebrow dark">Model</p>
+      <h1>{{ model_page.name }}</h1>
+      <p class="entity-facts">
+        {{ model_page.company }} · {{ model_page.country }}
+        {% if model_page.release %} · {{ model_page.release }}{% endif %}
+        {% if model_page.aa_score %}
+        · {% if model_page.aa_report_url %}<a href="{{ model_page.aa_report_url|safe }}" target="_blank" rel="noopener noreferrer">Artificial Analysis {{ model_page.aa_score }}</a>{% else %}Artificial Analysis {{ model_page.aa_score }}{% endif %}
+        {% endif %}
+      </p>
+      <p class="entity-blurb">{{ model_page.blurb }}</p>
+      <div class="entity-modalities">
+        <span>Input</span>
+        {% for item in model_page.input_modalities %}<span class="mod" title="{{ item.label }}">{{ item.icon|safe }}<span class="sr-only">{{ item.label }}</span></span>{% endfor %}
+        <span class="entity-arrow" aria-hidden="true">→</span>
+        <span>Output</span>
+        {% for item in model_page.output_modalities %}<span class="mod" title="{{ item.label }}">{{ item.icon|safe }}<span class="sr-only">{{ item.label }}</span></span>{% endfor %}
+      </div>
+      {% if model_page.vendor_url %}
+      <div class="prov-links"><a href="{{ model_page.vendor_url|safe }}">Model vendor</a></div>
+      {% endif %}
+    </div>
+  </header>
+  <div class="entity-section-title">
+    <h2>Provider listings</h2>
+  </div>
+  {{ catalogue_list(groups) }}
+</section>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% macro modalities(items) -%}
+  {% for item in items %}
+  <span class="mod" title="{{ item.label }}">{{ item.icon|safe }}<span class="sr-only">{{ item.label }}</span></span>
+  {% else %}
+  <span class="mod-none">-</span>
+  {% endfor %}
+{%- endmacro %}
+
+{% macro catalogue_list(groups) %}
+<div class="catalog-controls">
+  <div class="catalog-nav" role="group" aria-label="Filter models by type">
+    {% for group in groups %}
+    <a href="#cat-{{ group.id }}" data-type-filter="{{ group.id }}" aria-controls="cat-{{ group.id }}" aria-pressed="false"><b>{{ group.name }}</b> {{ group.rows|length }}</a>
+    {% endfor %}
+  </div>
+  <form class="catalog-search" role="search">
+    <label>
+      <span class="sr-only">Filter models</span>
+      <input id="model-filter" type="search" placeholder="Filter models" autocomplete="off" spellcheck="false" />
+    </label>
+  </form>
+</div>
+{% for group in groups %}
+<section class="cat-section" id="cat-{{ group.id }}" data-model-type="{{ group.id }}">
+  <div class="cat-head">
+    <h2>{{ group.name }}</h2>
+    <p>{{ group.blurb }}</p>
+  </div>
+  <div class="cat-list">
+    <div class="cat-row cat-cols">
+      <div></div><div></div>
+      <div class="prices"><span>In €</span><span>Out €</span></div>
+    </div>
+    {% for row in group.rows %}
+    <div class="cat-row{% if row.flagship %} is-flagship{% endif %}" data-model-row>
+      <div class="model">
+        <span class="name"><a href="{{ row.model_url }}">{{ row.key }}</a></span>
+        <span class="meta">
+          <a href="{{ row.provider_url }}">{{ row.provider }}</a> · {{ row.company }}
+          {% if row.aa_score %}
+          · {% if row.aa_report_url %}<a href="{{ row.aa_report_url|safe }}" target="_blank" rel="noopener noreferrer">AA {{ row.aa_score }}</a>{% else %}AA {{ row.aa_score }}{% endif %}
+          {% endif %}
+          {% if row.release %} · {{ row.release }}{% endif %}
+          {% if row.note %} · {{ row.note }}{% endif %}
+        </span>
+      </div>
+      <div class="mods">
+        {{ modalities(row.input_modalities) }}
+        <span class="arrow" aria-hidden="true">→</span>
+        {{ modalities(row.output_modalities) }}
+      </div>
+      <div class="prices">
+        <div>
+          <span>
+            {% if row.input_price %}{{ row.input_price.value }}<span class="unit">/{{ row.input_price.unit }}</span>{% else %}-{% endif %}
+          </span>
+          {% if row.cached_input_price %}<small>cached {{ row.cached_input_price.text }}</small>{% endif %}
+        </div>
+        <div>
+          <span>
+            {% if row.output_price %}{{ row.output_price.value }}<span class="unit">/{{ row.output_price.unit }}</span>{% else %}-{% endif %}
+          </span>
+          {% if row.output_note %}<small>{{ row.output_note }}</small>{% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+<p class="cat-empty" id="catalog-empty" role="status" aria-live="polite" hidden>No models match these filters.</p>
+<script>
+  (() => {
+    const filterInput = document.querySelector('#model-filter');
+    const typeFilters = [...document.querySelectorAll('[data-type-filter]')];
+    const modelRows = [...document.querySelectorAll('[data-model-row]')];
+    const sections = [...document.querySelectorAll('.cat-section')];
+    const emptyMessage = document.querySelector('#catalog-empty');
+    let activeType = null;
+
+    const applyFilters = () => {
+      const query = filterInput.value.trim().toLowerCase();
+      for (const typeFilter of typeFilters) {
+        typeFilter.setAttribute('aria-pressed', String(typeFilter.dataset.typeFilter === activeType));
+      }
+      for (const row of modelRows) {
+        const typeMatches = !activeType || row.closest('[data-model-type]').dataset.modelType === activeType;
+        const queryMatches = !query || row.textContent.toLowerCase().includes(query);
+        row.classList.toggle('filtered-row', !typeMatches || !queryMatches);
+      }
+      let hasVisibleRow = false;
+      for (const section of sections) {
+        const hasVisibleSectionRow = [...section.querySelectorAll('[data-model-row]')]
+          .some(row => !row.classList.contains('filtered-row'));
+        section.classList.toggle('filtered-section', !hasVisibleSectionRow);
+        hasVisibleRow ||= hasVisibleSectionRow;
+      }
+      emptyMessage.hidden = hasVisibleRow;
+    };
+
+    for (const typeFilter of typeFilters) {
+      typeFilter.addEventListener('click', event => {
+        event.preventDefault();
+        const type = typeFilter.dataset.typeFilter;
+        activeType = activeType === type ? null : type;
+        applyFilters();
+      });
+    }
+
+    filterInput.addEventListener('input', applyFilters);
+  })();
+</script>
+{% endmacro %}

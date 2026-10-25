@@ -1,0 +1,70 @@
+name: Publish public site
+
+on:
+  push:
+    tags:
+      - "public-*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-public-site
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@v4
+        with:
+          path: retail
+          persist-credentials: false
+
+      - name: Check out catalog dependency
+        uses: actions/checkout@v4
+        with:
+          repository: modelpond/modelpond-catalog
+          ref: master
+          path: catalog
+          persist-credentials: false
+
+      - name: Build site
+        working-directory: retail
+        run: cargo build --release --locked
+
+      - name: Publish site to gh-pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          public_tag="$GITHUB_REF_NAME"
+          if [[ ! "$public_tag" =~ ^public-[0-9]{8}$ ]]; then
+            echo "Refusing to publish invalid tag: $public_tag" >&2
+            exit 1
+          fi
+
+          publish_dir="${GITHUB_WORKSPACE}/publish"
+          git init --quiet "$publish_dir"
+          git -C "$publish_dir" remote add origin \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          if git -C "$publish_dir" fetch --depth=1 origin gh-pages; then
+            git -C "$publish_dir" checkout -B gh-pages FETCH_HEAD
+          else
+            git -C "$publish_dir" checkout --orphan gh-pages
+          fi
+
+          rsync --archive --delete --exclude='.git/' \
+            "${GITHUB_WORKSPACE}/retail/target/html/" \
+            "${publish_dir}/"
+
+          git -C "$publish_dir" config user.name "Model Pond Admin"
+          git -C "$publish_dir" config user.email "github@modelpond.eu"
+          git -C "$publish_dir" add -A
+          git -C "$publish_dir" commit --allow-empty --message="Publish ${public_tag}"
+          git -C "$publish_dir" push origin "HEAD:refs/heads/gh-pages"

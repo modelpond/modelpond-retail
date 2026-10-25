@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% from "model-list.html" import catalogue_list %}
+{% block title %}Model Pond: Catalogue{% endblock %}
+{% block description %}Every model available through Model Pond, split by capability, with the flagship tier marked.{% endblock %}
+{% block header_class %} pinned{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/catalog.css" />
+{% endblock %}
+
+{% block content %}
+<h1>Catalogue</h1>
+<p class="catalog-lede">Provider list prices in EUR, passed through at cost plus Model Pond's 2.5% markup.
+
+<section class="providers" aria-labelledby="providers-heading">
+  <div class="prov-head">
+    <h2 id="providers-heading">Providers</h2>
+    <p>Every model below is served by one of these providers. Links go to the provider's own published terms.
+  </div>
+  <div class="prov-list">
+    {% for provider in providers %}
+    <article class="prov-row">
+      <div class="prov-id">
+        {% if provider.homepage_url %}
+        <a href="{{ provider.page_url }}">
+          <img class="prov-logo" src="{{ provider.logo_url|safe }}" alt="" loading="lazy">
+        </a>
+        {% else %}
+        <img class="prov-logo" src="{{ provider.logo_url|safe }}" alt="" loading="lazy">
+        {% endif %}
+        <h3><a href="{{ provider.page_url }}">{{ provider.name }}</a></h3>
+        <span>{{ provider.country }}{% if provider.types %} · {{ provider.types }}{% endif %}</span>
+      </div>
+      <div class="prov-body">
+        <p>{{ provider.blurb }}</p>
+        <div class="prov-links">
+          {% for link in provider.links %}
+          <a href="{{ link.url|safe }}">{{ link.label }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="flagship" aria-labelledby="flagship-heading">
+  <div class="flag-intro">
+    <h2 id="flagship-heading">Flagship models</h2>
+    <p>The strongest models here, each with every provider that hosts it and their rates side by side.
+  </div>
+  <div class="flag-list">
+    {% for model in flagship_models %}
+    <article class="flag-card">
+      {% if model.logo_url %}
+      <a href="{{ model.model_url }}"><img class="flag-model-logo" src="{{ model.logo_url|safe }}" alt="{{ model.company }}" title="{{ model.company }}"></a>
+      {% endif %}
+      <div class="flag-head">
+        <h3><a href="{{ model.model_url }}">{{ model.name }}</a></h3>
+        <span class="flag-facts">
+          {{ model.company }}
+          {% if model.release %} · {{ model.release }}{% endif %}
+          {% if model.aa_score %}
+          · {% if model.aa_report_url %}<a href="{{ model.aa_report_url|safe }}" target="_blank" rel="noopener noreferrer">Artificial Analysis {{ model.aa_score }}</a>{% else %}Artificial Analysis {{ model.aa_score }}{% endif %}
+          {% endif %}
+        </span>
+      </div>
+      <p class="flag-desc">{{ model.blurb }}</p>
+      <div class="flag-prices">
+        <span><b>IN</b> {{ model.input_range }}</span>
+        <span><b>OUT</b> {{ model.output_range }}</span>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<div class="catalog-legend">
+  {% for item in legend %}
+  <span>{{ item.icon|safe }}{{ item.label }}</span>
+  {% endfor %}
+  <span>"-" means the provider charges nothing</span>
+</div>
+
+{{ catalogue_list(groups) }}
+
+<p class="catalog-footnote">
+  Sources: Scaleway Generative APIs, IONOS AI Model Hub, OVHcloud AI Endpoints, Berget AI and STACKIT AI Model Serving, checked 22 September 2026; Mistral Cloud, checked 6 October 2026; Regolo.ai and ARK Labs, checked 22 October 2026; Privatemode AI, Lyceum, Multiverse Computing, Uprelic and Laya Studio, checked 23 October 2026.
+  IONOS and Mistral publish in USD, converted here at the ECB reference rate of 0.87237.
+  ARK Labs, Lyceum, CompactifAI, Uprelic and Laya Studio publish in USD and are converted at the same reference rate; converted rates are rounded for display.
+  Mistral lists a launch sale rate for Large 4, roughly half their standard rate; the preview price is what is shown.
+  Whisper is billed per minute of audio, FLUX.1 schnell per image, FLUX.2 klein per output megapixel, and the NVIDIA Riva voices per input character.
+  Embedding models, rerankers, and typed-decision models are separate output classes.
+  STACKIT bills by model tier, so their rows share rates; each row names its tier.
+  Prices change: treat this page as a snapshot and confirm against the provider before you commit.
+</p>
+{% endblock %}

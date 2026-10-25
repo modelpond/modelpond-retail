@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Model Pond: Code{% endblock %}
+{% block description %}Reference information for Model Pond Code: a supported version of Codex preconfigured for Model Pond models with telemetry disabled.{% endblock %}
+{% block header_class %} pinned{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/product.css" />
+{% endblock %}
+{% block content %}
+<div class="doc-wrap">
+        <h1>Code</h1>
+        <p class="doc-lede">Model Pond has a supported version of Codex preconfigured for our models and with all telemetry disabled.
+
+        <div class="doc-meta">
+          <span>Supported build</span>
+          <span>Preconfigured for Model Pond models</span>
+          <span>Telemetry disabled</span>
+        </div>
+
+        <section class="doc-section">
+          <h2>What it is</h2>
+          <p>A coding agent you can install and use without wiring it up yourself. The build is preconfigured for Model Pond's models, so model access comes through the gateway rather than from a separate account, and no API keys are needed beyond your Model Pond one.
+          <p>It is a supported build, which means it is tested against the models served here and updated when they change, rather than left to drift against whatever the upstream project releases.
+        </section>
+
+        <section class="doc-section">
+          <h2>Telemetry</h2>
+          <p>All telemetry is disabled. The agent does not report usage, crashes, prompts or code back to its upstream vendor, and there is no setting to turn reporting on.
+          <p class="note">This is separate from what the gateway records for billing, which is described on the <a href="/gateway/">gateway page</a>: counters and token totals, attributed to an API key and a target model, with no record of content.
+        </section>
+
+        <section class="doc-section">
+          <h2>Where the work runs</h2>
+          <p>Model requests go to the gateway, so the same routing, hosting and retention terms apply as to any other request you send us: handled on Model Pond-managed infrastructure, then forwarded to the provider serving the model you selected.
+          <p>Code stays on your machine. What leaves it is the context the agent sends to the model, and nothing else.
+        </section>
+
+        <section class="doc-section read-next" aria-labelledby="read-next-title">
+          <h2 class="read-next__title" id="read-next-title">What to read next</h2>
+          <div class="read-next__grid">
+            <a class="read-next__card" href="/gateway/">
+              <span class="read-next__card-title">Gateway</span>
+              <span class="read-next__card-text">Compatible APIs, routing, hosting and the metrics recorded.</span>
+              <span class="read-next__link">Read about Gateway</span>
+            </a>
+            <a class="read-next__card" href="/catalogue/">
+              <span class="read-next__card-title">Catalogue</span>
+              <span class="read-next__card-text">The models the agent is configured to use.</span>
+              <span class="read-next__link">Browse the catalogue</span>
+            </a>
+            <a class="read-next__card" href="/privacy/">
+              <span class="read-next__card-title">Privacy</span>
+              <span class="read-next__card-text">Zero retention terms and provider criteria.</span>
+              <span class="read-next__link">Read about Privacy</span>
+            </a>
+          </div>
+        </section>
+      </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "model-list.html" import catalogue_list %}
+{% block title %}Model Pond: {{ provider_page.name }}{% endblock %}
+{% block description %}{{ provider_page.blurb }}{% endblock %}
+{% block header_class %} pinned{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/catalog.css" />
+{% endblock %}
+{% block content %}
+<section class="catalogue-entity">
+  <header class="entity-head">
+    {% if provider_page.homepage_url %}
+    <a class="entity-logo" href="{{ provider_page.homepage_url|safe }}" target="_blank" rel="noopener noreferrer">
+      <img src="{{ provider_page.logo_url }}" alt="" />
+    </a>
+    {% else %}
+    <span class="entity-logo"><img src="{{ provider_page.logo_url }}" alt="" /></span>
+    {% endif %}
+    <div class="entity-copy">
+      <p class="eyebrow dark">Provider</p>
+      <h1>{{ provider_page.name }}</h1>
+      <p class="entity-facts">{{ provider_page.country }}{% if provider_page.types %} · {{ provider_page.types }}{% endif %}</p>
+      <p class="entity-blurb">{{ provider_page.blurb }}</p>
+      <div class="prov-links">
+        {% for link in provider_page.links %}
+        <a href="{{ link.url|safe }}">{{ link.label }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </header>
+  {{ catalogue_list(groups) }}
+</section>
+{% endblock %}

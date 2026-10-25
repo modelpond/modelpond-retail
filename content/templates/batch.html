@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Model Pond: Batch{% endblock %}
+{% block description %}Reference information for batch processing through the Model Pond gateway: submitting bulk jobs, turnaround, billing and provider support.{% endblock %}
+{% block header_class %} pinned{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/product.css" />
+{% endblock %}
+{% block content %}
+<div class="doc-wrap">
+        <h1>Batch</h1>
+        <p class="doc-lede">Bulk inference: many requests submitted as one job, processed in the background and collected when they finish.
+
+        <div class="doc-meta">
+          <span>Asynchronous</span>
+          <span>Discounted rates</span>
+          <span>Text and audio</span>
+        </div>
+
+        <section class="doc-section">
+          <h2>What batch is for</h2>
+          <p>Batch is for work with no one waiting on the answer. Instead of sending requests one at a time and holding a connection open for each, you hand over a file of requests and collect the results when the job completes.
+          <p>It suits transcription of a back catalogue of recordings, classification or extraction over a dataset, bulk translation, and transformation jobs where the same instruction is applied to thousands of records. Audio can be submitted this way alongside text, so transcription archives do not need a different mechanism from everything else.
+        </section>
+
+        <section class="doc-section">
+          <h2>How it works</h2>
+          <p>The shape follows the OpenAI Batch API, which is what the providers offering batch on this platform implement:
+          <ul class="doc-list">
+            <li>Upload a JSONL file in which each line is one request: the target model and its parameters.</li>
+            <li>Create a batch job referencing that file. Each line is processed as an individual request.</li>
+            <li>Poll the job until its status is completed, then retrieve the output.</li>
+          </ul>
+          <p>Results come back as two files: one carrying the responses, one carrying the failures, so a single bad line does not have to be untangled from the rest of the job. Where the provider writes these to object storage, the output is named after the input file.
+          <h3>Turnaround</h3>
+          <p>A completion window is set when the job is created. One provider offers a choice of 24, 48 or 72 hours, with 48 hours as the default.
+        </section>
+
+        <section class="doc-section">
+          <h2>Billing</h2>
+          <p>Batch is charged at the provider's batch rate, which is lower than the same model's synchronous rate. The discounts are the provider's, not ours, and they differ between providers; Model Pond's 2.5% is applied on top of whichever rate applies to the job.
+          <p>Batch rates are a percentage reduction on the model's listed rate, applied by the provider at billing time.
+        </section>
+
+        <section class="doc-section">
+          <h2>Provider support</h2>
+          <table class="doc-table">
+            <thead>
+              <tr><th>Provider</th><th>Batch support</th><th>Documentation</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Scaleway</td>
+                <td class="dim">Yes — JSONL input against Object Storage</td>
+                <td><a href="https://www.scaleway.com/en/docs/generative-apis/how-to/use-batch-processing/">Batch processing</a></td>
+              </tr>
+              <tr>
+                <td>OVHcloud</td>
+                <td class="dim">Yes — OpenAI-compatible <code>/v1/batches</code></td>
+                <td><a href="https://docs.ovhcloud.com/en/guides/public-cloud/ai-machine-learning/ai-endpoints-batch-mode/">Batch mode</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="doc-section">
+          <h2>What is recorded</h2>
+          <p>Batch jobs are metered the same way as synchronous requests, and the same narrow record applies: time taken, success and failure counts, input tokens, cached tokens and output tokens, attributed to the API key and target model and recorded against a billing period rather than with a timestamp. Prompt and response content is not recorded. See <a href="/gateway/">Gateway</a> for the full list.
+        </section>
+
+        <section class="doc-section read-next" aria-labelledby="read-next-title">
+          <h2 class="read-next__title" id="read-next-title">What to read next</h2>
+          <div class="read-next__grid">
+            <a class="read-next__card" href="/gateway/">
+              <span class="read-next__card-title">Gateway</span>
+              <span class="read-next__card-text">Compatible APIs, routing, hosting and the metrics recorded.</span>
+              <span class="read-next__link">Read about Gateway</span>
+            </a>
+            <a class="read-next__card" href="/catalogue/">
+              <span class="read-next__card-title">Catalogue</span>
+              <span class="read-next__card-text">Every model, its provider and its synchronous rates.</span>
+              <span class="read-next__link">Read about Catalogue</span>
+            </a>
+            <a class="read-next__card" href="/privacy/">
+              <span class="read-next__card-title">Privacy</span>
+              <span class="read-next__card-text">Zero retention terms and provider criteria.</span>
+              <span class="read-next__link">Read about Privacy</span>
+            </a>
+          </div>
+        </section>
+      </div>
+{% endblock %}
