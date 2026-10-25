@@ -34,7 +34,7 @@ jobs:
 
       - name: Build site
         working-directory: retail
-        run: cargo build --release --locked
+        run: make site
 
       - name: Publish site to gh-pages
         env:
