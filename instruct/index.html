@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Reference information for the Model Pond Instruct product: encrypted conversation storage, teams, temporary chats and web search." />
+    <meta name="description" content="Reference information for Model Pond Instruct: steerable sessions, an attested compute sandbox, web search, rich media, encrypted storage, teams and temporary chats." />
     <title>Model Pond: Instruct</title>
     <link rel="icon" href="/static/favicon.ico" />
     <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
@@ -16,7 +16,7 @@
     <header class="site-header pinned">
       <div class="shell nav-wrap">
         <a class="brand" href="/" aria-label="Model Pond home">
-          <img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109">
+          <img class="brand-mark" src="/static/logo.webp" alt="" width="144" height="109">
           <span>Model Pond</span>
         </a>
         <nav class="desktop-nav" aria-label="Primary navigation">
@@ -62,6 +62,23 @@
           <h2>The interface</h2>
           <p>Conversations, a thread view and a composer, with model selection and web search available per conversation. If you have used ChatGPT or Claude, the shape is familiar; the difference is where the conversation is kept and who can open it.
           <p>Requests made from Instruct go through the <a href="/gateway/">gateway</a>, so the same provider routing applies to what you type here as to anything you send over the API.
+        </section>
+
+        <section class="doc-section">
+          <h2>What Instruct can do</h2>
+          <p>The conversation is a working session rather than a one-way exchange. You can redirect work while it is still in progress, inspect what the model is doing, and keep the material you are working with close at hand.
+          <ul class="doc-list">
+            <li><strong>Steerable, interruptible sessions.</strong> Type to the model while it is working to adjust its direction, or stop it with a single keypress.</li>
+            <li><strong>Integrated compute sandbox.</strong> Code runs in confidential, attested virtual machines, isolated from the rest of the service.</li>
+            <li><strong>Inline web search citations.</strong> Search results are cited alongside the answer so you can see where each claim came from.</li>
+            <li><strong>Visible progress and tool use.</strong> Follow what the model is doing and which tools it is using while the response is still being prepared.</li>
+            <li><strong>Smart paste.</strong> Pasted material is kept distinct from typed input and automatically attached as a file when it is too large to sit comfortably in the composer.</li>
+            <li><strong>Rich inline media.</strong> YouTube videos, films, audio and image galleries can be viewed in the conversation rather than opened as separate tabs.</li>
+            <li><strong>Copy the whole conversation.</strong> Copy the complete thread in one step with its dedicated keyboard shortcut.</li>
+            <li><strong>Keyboard control.</strong> Command-key shortcuts cover every major function without taking your hands away from the text input box.</li>
+            <li><strong>Change models mid-session.</strong> Switch to another model at any point and continue with the existing conversation.</li>
+            <li><strong>Full-text search.</strong> Search across attached files and earlier searches to find material without reopening each conversation.</li>
+          </ul>
         </section>
 
         <section class="doc-section">
@@ -132,7 +149,7 @@
     <footer class="site-footer">
       <div class="shell footer-grid">
         <div class="footer-brand">
-          <a class="brand inverse" href="/"><img class="brand-mark" src="/static/logo.png" alt="" width="144" height="109"><span>Model Pond</span></a>
+          <a class="brand inverse" href="/"><img class="brand-mark" src="/static/logo.webp" alt="" width="144" height="109"><span>Model Pond</span></a>
           <p>Unified gateway for private AI compute.
         </div>
         <div class="footer-links">
