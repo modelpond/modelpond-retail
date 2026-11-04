@@ -86,12 +86,7 @@ fn generate_site() -> anyhow::Result<()> {
 
     let bases = base_models(catalog);
     for provider in &views.providers {
-        let groups = groups_for(
-            catalog,
-            &bases,
-            Some(provider.id.as_str()),
-            None,
-        );
+        let groups = groups_for(catalog, &bases, Some(provider.id.as_str()), None);
         let context = Value::from_serialize(PageContext {
             page: "catalogue-provider",
             year: 2026,
@@ -116,12 +111,7 @@ fn generate_site() -> anyhow::Result<()> {
 
     for vendor in &catalog.vendors {
         for model in &vendor.models {
-            let groups = groups_for(
-                catalog,
-                &bases,
-                None,
-                Some(model.id.as_str()),
-            );
+            let groups = groups_for(catalog, &bases, None, Some(model.id.as_str()));
             let context = Value::from_serialize(PageContext {
                 page: "catalogue-model",
                 year: 2026,
@@ -347,9 +337,9 @@ fn build_views(catalog: &Catalog) -> CatalogViews {
                 .providers
                 .iter()
                 .flat_map(|provider| provider.models.iter().map(move |hosted| (provider, hosted)))
-                .filter(|(_, hosted)| hosted.vendor_model_id == model.id && hosted.flagship)
+                .filter(|(_, hosted)| hosted.vendor_model_id == model.id)
                 .collect::<Vec<_>>();
-            if hosts.is_empty() {
+            if !model.flagship || hosts.is_empty() {
                 return None;
             }
 
@@ -395,9 +385,7 @@ fn build_views(catalog: &Catalog) -> CatalogViews {
     }
 }
 
-fn base_models(
-    catalog: &Catalog,
-) -> BTreeMap<&str, (&mp_catalog::Vendor, &VendorModel)> {
+fn base_models(catalog: &Catalog) -> BTreeMap<&str, (&mp_catalog::Vendor, &VendorModel)> {
     catalog
         .vendors
         .iter()
@@ -449,17 +437,14 @@ fn model_rows<'a>(
     catalog
         .providers
         .iter()
-        .filter(|provider| {
-            provider_filter.is_none_or(|id| provider.id == id)
-        })
+        .filter(|provider| provider_filter.is_none_or(|id| provider.id == id))
         .flat_map(|provider| {
             provider.models.iter().flat_map(move |hosted| {
                 let Some((vendor, base)) = bases.get(hosted.vendor_model_id.as_str()) else {
                     return Vec::new();
                 };
                 if base.model_type != model_type
-                    || vendor_model_filter
-                        .is_some_and(|id| base.id != id)
+                    || vendor_model_filter.is_some_and(|id| base.id != id)
                 {
                     return Vec::new();
                 }
@@ -494,19 +479,31 @@ fn model_rows<'a>(
                             &catalog.config.modality_order,
                             &catalog.config.icons,
                         ),
-                        input_price: price_view(&hosted.pricing.input),
-                        cached_input_price: hosted
-                            .pricing
-                            .cached_input
-                            .as_ref()
-                            .and_then(price_view),
-                        output_price: price_view(&hosted.pricing.output),
+                        input_price: price_view(
+                            &hosted.pricing.input,
+                            &hosted.pricing.currency,
+                            &catalog.config.pricing_policy.currency,
+                        ),
+                        cached_input_price: hosted.pricing.cached_input.as_ref().and_then(
+                            |price| {
+                                price_view(
+                                    price,
+                                    &hosted.pricing.currency,
+                                    &catalog.config.pricing_policy.currency,
+                                )
+                            },
+                        ),
+                        output_price: price_view(
+                            &hosted.pricing.output,
+                            &hosted.pricing.currency,
+                            &catalog.config.pricing_policy.currency,
+                        ),
                         output_note: hosted.pricing.output_note.clone(),
                         note: hosted.note.clone(),
                         release: base.release_date.as_deref().map(month_year),
                         aa_score: base.aa_score.map(|score| format!("{score:.1}")),
                         aa_report_url: base.aa_report_url.clone(),
-                        flagship: hosted.flagship,
+                        flagship: base.flagship,
                     })
                     .collect()
             })
@@ -536,8 +533,8 @@ fn flagship_view(
         release: model.release_date.as_deref().map(month_year),
         aa_score: model.aa_score.map(|score| format!("{score:.1}")),
         aa_report_url: model.aa_report_url.clone(),
-        input_range: price_range(hosts, true),
-        output_range: price_range(hosts, false),
+        input_range: price_range(catalog, hosts, true),
+        output_range: price_range(catalog, hosts, false),
         input_modalities: modality_views(
             &model.input_modalities,
             &catalog.config.modality_order,
@@ -668,18 +665,23 @@ fn modality_label(modality: &str) -> Option<&'static str> {
     }
 }
 
-fn price_view(price: &Price) -> Option<PriceView> {
+fn price_view(price: &Price, source_currency: &str, target_currency: &str) -> Option<PriceView> {
     let value = price.value.filter(|value| *value != 0.0)?;
     let unit = price.unit.as_ref()?;
-    let decimals = price.dp.unwrap_or(2) as usize;
+    let decimals = price.dp.unwrap_or(2);
+    let value = mp_catalog::convert_currency(value, source_currency, target_currency, decimals)?;
     Some(PriceView {
-        value: format!("{value:.decimals$}"),
+        value: format!("{value:.decimals$}", decimals = decimals as usize),
         unit: unit.clone(),
-        text: format!("{value:.decimals$}/{unit}"),
+        text: format!("{value:.decimals$}/{unit}", decimals = decimals as usize),
     })
 }
 
-fn price_range(hosts: &[(&Provider, &mp_catalog::ProviderModel)], input: bool) -> String {
+fn price_range(
+    catalog: &Catalog,
+    hosts: &[(&Provider, &mp_catalog::ProviderModel)],
+    input: bool,
+) -> String {
     let mut prices = hosts
         .iter()
         .filter_map(|(_, hosted)| {
@@ -689,7 +691,12 @@ fn price_range(hosts: &[(&Provider, &mp_catalog::ProviderModel)], input: bool) -
                 &hosted.pricing.output
             };
             price.unit.as_ref()?;
-            price.value
+            mp_catalog::convert_currency(
+                price.value?,
+                &hosted.pricing.currency,
+                &catalog.config.pricing_policy.currency,
+                2,
+            )
         })
         .collect::<Vec<_>>();
     prices.sort_by(|left, right| left.partial_cmp(right).unwrap_or(std::cmp::Ordering::Equal));
@@ -721,13 +728,7 @@ fn output_cost(model: &FlagshipView) -> f64 {
     let prices = model
         .output_range
         .split(" - ")
-        .filter_map(|value| {
-            value
-                .trim()
-                .trim_start_matches('€')
-                .parse::<f64>()
-                .ok()
-        })
+        .filter_map(|value| value.trim().trim_start_matches('€').parse::<f64>().ok())
         .collect::<Vec<_>>();
     match (prices.first(), prices.last()) {
         (Some(first), Some(last)) => (first + last) / 2.0,
