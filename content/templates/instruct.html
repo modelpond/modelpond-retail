@@ -21,13 +21,14 @@
           <h2>The interface</h2>
           <p>Conversations, a thread view and a composer, with model selection and web search available per conversation. If you have used ChatGPT or Claude, the shape is familiar; the difference is where the conversation is kept and who can open it.
           <p>Requests made from Instruct go through the <a href="/gateway/">gateway</a>, so the same provider routing applies to what you type here as to anything you send over the API.
+          <p>Messages typed while the model is responding are buffered. Press Enter twice to interrupt the current response and give the model the buffered information immediately.
         </section>
 
         <section class="doc-section">
           <h2>What Instruct can do</h2>
           <p>The conversation is a working session rather than a one-way exchange. You can redirect work while it is still in progress, inspect what the model is doing, and keep the material you are working with close at hand.
           <ul class="doc-list">
-            <li><strong>Steerable, interruptible sessions.</strong> Type to the model while it is working to adjust its direction, or stop it with a single keypress.</li>
+            <li><strong>Steerable, interruptible sessions.</strong> Type to the model while it is working to buffer new information, press Enter twice to interrupt the current response with it, or stop immediately with Esc.</li>
             <li><strong>Integrated compute sandbox.</strong> Code runs in confidential, attested virtual machines, isolated from the rest of the service.</li>
             <li><strong>Inline web search citations.</strong> Search results are cited alongside the answer so you can see where each claim came from.</li>
             <li><strong>Visible progress and tool use.</strong> Follow what the model is doing and which tools it is using while the response is still being prepared.</li>
