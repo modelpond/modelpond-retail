@@ -29,14 +29,14 @@ struct PageContext<'a> {
 }
 
 fn main() {
-    println!("cargo:rerun-if-changed=content");
+    println!("cargo:rerun-if-changed=static");
+    println!("cargo:rerun-if-changed=templates");
     println!("cargo:rerun-if-changed=../catalog/data");
     generate_site().unwrap_or_else(|error| panic!("failed to generate retail site: {error:#}"));
 }
 
 fn generate_site() -> anyhow::Result<()> {
     let manifest_dir = PathBuf::from(std::env::var("CARGO_MANIFEST_DIR")?);
-    let content_dir = manifest_dir.join("content");
     let target_dir = std::env::var_os("CARGO_TARGET_DIR")
         .map(PathBuf::from)
         .unwrap_or_else(|| manifest_dir.join("target"));
@@ -46,10 +46,10 @@ fn generate_site() -> anyhow::Result<()> {
     }
     fs::create_dir_all(&output_dir)?;
 
-    copy_dir(&content_dir.join("static"), &output_dir.join("static"))?;
+    copy_dir(&manifest_dir.join("static"), &output_dir.join("static"))?;
     copy_catalog_assets(&output_dir.join("static").join("catalog"))?;
 
-    let environment = template_environment(&content_dir.join("templates"))?;
+    let environment = template_environment(&manifest_dir.join("templates"))?;
     let catalog = mp_catalog::data();
     let views = build_views(catalog);
     let mut home_flagships = views.flagships.clone();
@@ -269,6 +269,9 @@ fn template_environment(directory: &Path) -> anyhow::Result<Environment<'static>
             .file_name()
             .and_then(|name| name.to_str())
             .with_context(|| format!("invalid template filename: {}", path.display()))?;
+        if name.starts_with('.') {
+            continue;
+        }
         let source = fs::read_to_string(&path)
             .with_context(|| format!("failed to read {}", path.display()))?;
         environment.add_template_owned(name.to_string(), source)?;

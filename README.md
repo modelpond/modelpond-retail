@@ -36,8 +36,8 @@ cargo build
 python3 -m http.server 8000 --directory target/html
 ```
 
-Templates live in `content/templates`, static files in `content/static`, and the
-catalog-backed MiniJinja context comes directly from `mp_catalog`.
+Templates live in `templates`, static files in `static`, and the catalog-backed
+MiniJinja context comes directly from `mp_catalog`.
 
 `cargo build` emits:
 
